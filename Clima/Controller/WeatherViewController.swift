@@ -8,17 +8,34 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITextFieldDelegate {
+    // UITextFieldDelegate -> method to manage editing and validation of text in a text field object.
 
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var searchTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Search text field reports back to the view controller.
+        /// i.e: "Hey viewController, the user just start typing"
+    
+        searchTextField.delegate = self
     }
 
 
+    @IBAction func searchPressed(_ sender: UIButton) {
+        print(searchTextField.text!)
+    }
+    
+    
+    // Method that asks the delegate if the text field should proccess the pressing of the return button (keyboard).
+    /// i.e: "GO" button.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(searchTextField.text!)
+        return true
+    }
 }
 
