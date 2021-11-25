@@ -21,12 +21,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         // Search text field reports back to the view controller.
         /// i.e: "Hey viewController, the user just start typing"
-    
         searchTextField.delegate = self
+        
+        
     }
 
 
     @IBAction func searchPressed(_ sender: UIButton) {
+        
+        // When the editing is done, dismiss the keyboard.
+        searchTextField.endEditing(true)
         print(searchTextField.text!)
     }
     
@@ -34,6 +38,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     // Method that asks the delegate if the text field should proccess the pressing of the return button (keyboard).
     /// i.e: "GO" button.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // When the editing is done, dismiss the keyboard.
+        searchTextField.endEditing(true)
         print(searchTextField.text!)
         return true
     }
