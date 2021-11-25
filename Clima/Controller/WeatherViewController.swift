@@ -46,6 +46,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    // Method that is useful for doing validation on user typed.
+    /// Checking if user typed sth and returns true. If not, returns false and placeholder will be placed to "type something".
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Type Something"
+            return false
+        }
+    }
+    
     // Method that clear the text field after editing.
     /// This method works for both buttons -> search and return (Go).
     func textFieldDidEndEditing(_ textField: UITextField) {
