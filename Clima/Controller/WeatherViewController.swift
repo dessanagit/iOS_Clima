@@ -44,5 +44,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         print(searchTextField.text!)
         return true
     }
+    
+    
+    // Method that clear the text field after editing.
+    /// This method works for both buttons -> search and return (Go).
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        searchTextField.text = ""
+    }
 }
 
